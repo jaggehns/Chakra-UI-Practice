@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  Button,
+  Container,
+  Heading,
+  Input,
+  useColorMode,
+  VStack,
+} from "@chakra-ui/react";
+import "./App.css";
 
 function App() {
+  const { toggleColorMode } = useColorMode();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxW="md" height="100vh">
+      <Button
+        onClick={toggleColorMode}
+        pos="absolute"
+        inset="0 0 auto auto"
+        m="2"
+      >
+        ?
+      </Button>
+      <VStack justify="center" height="100%" spacing="4">
+        <Heading textAlign="center">Log In</Heading>
+        <Input placeholder="Enter username" />
+        <Input placeholder="Enter password" type="password" />
+        <Button colorScheme="blue" variant="outline" width="100%">
+          Submit
+        </Button>
+      </VStack>
+    </Container>
   );
 }
 
